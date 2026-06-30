@@ -40,7 +40,7 @@ export default async function Home() {
         style={{ backgroundImage: "url('/hero.jpg')" }}
       >
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/20 dark:bg-black/50" />
+        <div className="absolute inset-0 bg-black/10 dark:bg-black/30" />
         <div className="absolute inset-0 bg-linear-to-r from-black/85 via-black/65 to-black/50" />
 
         {/* Content */}

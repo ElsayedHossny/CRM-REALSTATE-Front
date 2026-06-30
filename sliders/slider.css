@@ -1,0 +1,271 @@
+/* ===========================
+   CONTAINER
+=========================== */
+
+.cascade-slider_container {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  height: 560px;
+  margin: 0 auto;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+}
+
+/* ===========================
+   WRAPPER
+=========================== */
+
+.cascade-slider_slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.cascade-slider_item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 360px;
+  height: 450px;
+
+  overflow: hidden;
+  border-radius: 28px;
+
+  transform: translate(-50%, -50%) scale(0.55);
+
+  opacity: 0;
+
+  cursor: grab;
+
+  transition:
+    transform 0.55s ease,
+    opacity 0.55s ease,
+    box-shadow 0.4s ease;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+  will-change: transform;
+}
+
+.cascade-slider_item:active {
+  cursor: grabbing;
+}
+
+/* ===========================
+   IMAGE
+=========================== */
+
+.cascade-slider_item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.cascade-slider_item:hover img {
+  transform: scale(1.05);
+}
+
+/* Gradient Overlay */
+
+.cascade-slider_item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.15),
+    transparent
+  );
+}
+
+/* ===========================
+   ACTIVE
+=========================== */
+
+.cascade-slider_item.now {
+  transform: translate(-50%, -50%) scale(1);
+
+  opacity: 1;
+
+  z-index: 5;
+
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.22);
+}
+
+/* ===========================
+   LEFT
+=========================== */
+
+.cascade-slider_item.next {
+  transform: translate(-125%, -50%) scale(0.82);
+
+  opacity: 0.85;
+
+  z-index: 4;
+
+  filter: brightness(0.9);
+}
+
+/* ===========================
+   RIGHT
+=========================== */
+
+.cascade-slider_item.prev {
+  transform: translate(25%, -50%) scale(0.82);
+
+  opacity: 0.85;
+
+  z-index: 4;
+
+  filter: brightness(0.9);
+}
+
+/* ===========================
+   FAR ITEMS
+=========================== */
+
+.cascade-slider_item.next2 {
+  transform: translate(-190%, -50%) scale(0.65);
+
+  opacity: 0.35;
+
+  z-index: 2;
+}
+
+.cascade-slider_item.prev2 {
+  transform: translate(90%, -50%) scale(0.65);
+
+  opacity: 0.35;
+
+  z-index: 2;
+}
+
+/* ===========================
+   ARROWS
+=========================== */
+
+.cascade-slider_arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 56px;
+  height: 56px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+  cursor: pointer;
+  z-index: 10;
+
+  background: rgba(255, 255, 255, 0.95);
+  color: #15803d; /* green-700 */
+
+  border: 1px solid #dcfce7;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+
+  transition: all 0.3s ease;
+}
+
+.cascade-slider_arrow:hover {
+  background: #15803d;
+  color: white;
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 18px 35px rgba(21, 128, 61, 0.3);
+}
+
+.cascade-slider_arrow-left {
+  left: 20px;
+}
+
+.cascade-slider_arrow-right {
+  right: 20px;
+}
+
+/* ===================== */
+/* 📱 MOBILE (1 CARD ONLY)
+/* ===================== */
+@media (max-width: 767px) {
+  .cascade-slider_container {
+    height: 380px;
+  }
+
+  .cascade-slider_item {
+    width: 260px;
+    height: 320px;
+  }
+
+  .cascade-slider_item.next,
+  .cascade-slider_item.prev,
+  .cascade-slider_item.next2,
+  .cascade-slider_item.prev2 {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+/* ===================== */
+/* 📱 TABLET (3 CARDS)
+/* ===================== */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .cascade-slider_container {
+    height: 460px;
+  }
+
+  .cascade-slider_item {
+    width: 300px;
+    height: 380px;
+  }
+
+  .cascade-slider_item.next {
+    transform: translate(-105%, -50%) scale(0.75);
+  }
+
+  .cascade-slider_item.prev {
+    transform: translate(5%, -50%) scale(0.75);
+  }
+
+  .cascade-slider_item.next2,
+  .cascade-slider_item.prev2 {
+    opacity: 0;
+  }
+}
+
+/* ===================== */
+/* 💻 DESKTOP (FULL 3D)
+/* ===================== */
+@media (min-width: 1024px) {
+  .cascade-slider_container {
+    height: 550px;
+  }
+
+  .cascade-slider_item.next {
+    transform: translate(-125%, -50%) scale(0.7);
+  }
+
+  .cascade-slider_item.prev {
+    transform: translate(25%, -50%) scale(0.7);
+  }
+
+  .cascade-slider_item.next2 {
+    transform: translate(-185%, -50%) scale(0.45);
+  }
+
+  .cascade-slider_item.prev2 {
+    transform: translate(85%, -50%) scale(0.45);
+  }
+}

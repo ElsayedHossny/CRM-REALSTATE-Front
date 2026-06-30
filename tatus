@@ -1,0 +1,81 @@
+[33mcommit 833ff0eb112c7262170e92eb9e80936318fd3941[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmahmoud[m[33m, [m[1;31morigin/mahmoud[m[33m)[m
+Author: Mahmoudsallam342 <msallam342@gmail.com>
+Date:   Sat May 30 18:30:13 2026 +0300
+
+    building home screen hero section fetching data in cards
+
+[33mcommit 59a7eb1e381a3a4a83539b79b0d02a4bd69da90a[m
+Author: mostafa <mostafakasaba8@gmail.com>
+Date:   Fri May 29 00:55:21 2026 +0300
+
+    ..
+
+[33mcommit ae44d980878e6e9f93565f342873a6489ea40e6a[m
+Author: mostafa <mostafakasaba8@gmail.com>
+Date:   Fri May 29 00:55:10 2026 +0300
+
+    add changes
+
+[33mcommit b23226d7fbd55f3c55581c7c432bd8910da35188[m
+Merge: 5e253db c448581
+Author: mostafa <mostafakasaba8@gmail.com>
+Date:   Fri May 29 00:02:04 2026 +0300
+
+    Merge branch 'sayed' of https://github.com/mostafasamehkasaba/Final_project-Crm-system into mostafa
+
+[33mcommit c4485813f52247aa1f0ceb0c7b5f22710cb34898[m
+Author: Elsayed <elsayedhossny90@gmail.com>
+Date:   Thu May 28 23:36:06 2026 +0300
+
+    feat: initialize project create Navbar and make All authentication (signIn, signOut, Register)
+
+[33mcommit 5e253db449f93f3947db23c87c349ff5a1d50820[m
+Merge: b031c5f 7bc49da
+Author: mostafa sameh <164693385+mostafasamehkasaba@users.noreply.github.com>
+Date:   Tue May 26 14:02:16 2026 +0300
+
+    Merge pull request #2 from mostafasamehkasaba/mostafa
+    
+    Mostafa
+
+[33mcommit 7bc49da1a8c531ef2f9b1710ecd909276c3ad27e[m
+Author: mostafa <mostafakasaba8@gmail.com>
+Date:   Mon May 25 20:30:54 2026 +0300
+
+    .
+
+[33mcommit 62a03d445ce8e4099b045f86363c680df4a3fe50[m
+Author: mostafa <mostafakasaba8@gmail.com>
+Date:   Mon May 25 19:54:17 2026 +0300
+
+    add contact-page by mostafa
+
+[33mcommit e68aef2783060cc4982217472dc2d7ed96ab0827[m
+Author: mostafa <mostafakasaba8@gmail.com>
+Date:   Mon May 25 10:15:18 2026 +0300
+
+    add contactUs Page and install shadcn ui
+
+[33mcommit b031c5f830ab9519c494641a88f216d64855b9f2[m
+Author: mostafa <mostafakasaba8@gmail.com>
+Date:   Sat May 23 21:47:19 2026 +0300
+
+    inital
+
+[33mcommit de274715a3c1274c23626478eec395691ecf195c[m
+Author: mostafa <mostafakasaba8@gmail.com>
+Date:   Sat May 23 21:44:17 2026 +0300
+
+    create footer
+
+[33mcommit 509b05a07817b2f1a23913c4bb70ae03f2ba53cf[m
+Author: mostafa <mostafakasaba8@gmail.com>
+Date:   Sat May 16 23:49:29 2026 +0300
+
+    add the final project
+
+[33mcommit 2703d1322cded4844e567ddc02d891bd06696ada[m
+Author: mostafa <mostafakasaba8@gmail.com>
+Date:   Fri May 15 22:30:20 2026 +0300
+
+    Initial commit from Create Next App

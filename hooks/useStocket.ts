@@ -12,7 +12,7 @@ export const getSocket = () => {
     });
 
     socket.on("connect", () => {
-      console.log("✅ Connected:", socket.id);
+      console.log("✅ Connected:", socket?.id);
     });
 
     socket.on("disconnect", () => {

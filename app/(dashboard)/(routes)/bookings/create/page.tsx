@@ -10,7 +10,7 @@ export default function CreateBookingPage() {
           إضافة حجز جديد للنظام
         </p>
       </div>
-      <BookingCreateForm />
+      <BookingCreateForm propertyId="" onClose={() => {}} />
     </div>
   );
 }

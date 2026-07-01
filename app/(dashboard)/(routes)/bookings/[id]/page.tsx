@@ -6,17 +6,20 @@ import { Pencil } from "lucide-react";
 // 1. قم بتعريف الخرائط والتنسيقات الخاصة بالحالات هنا 👇
 const statusStyles: Record<string, { bg: string; text: string; dot: string; label: string }> = {
   pending: {
-    bg: "bg-amber-50 text-amber-700 dark:bg-amber-500/10 dark:text-amber-500",
+    bg: "bg-amber-50 dark:bg-amber-500/10",
+    text: "text-amber-700 dark:text-amber-500",
     dot: "bg-amber-500",
     label: "قيد الانتظار",
   },
   confirmed: {
-    bg: "bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-500",
+    bg: "bg-emerald-50 dark:bg-emerald-500/10",
+    text: "text-emerald-700 dark:text-emerald-500",
     dot: "bg-emerald-500",
     label: "مؤكد",
   },
   cancelled: {
-    bg: "bg-rose-50 text-rose-700 dark:bg-rose-500/10 dark:text-rose-500",
+    bg: "bg-rose-50 dark:bg-rose-500/10",
+    text: "text-rose-700 dark:text-rose-500",
     dot: "bg-rose-500",
     label: "ملغي",
   },

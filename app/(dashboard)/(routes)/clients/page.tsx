@@ -39,7 +39,7 @@ export default function ClientsPage() {
   const [selectedClient, setSelectedClient] = useState<Client | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
-  const [users, setUsers] = useState([]);
+ const [users, setUsers] = useState<User[]>([]);
   const [formData, setFormData] = useState({
     user_id: "",
     property_id: "",

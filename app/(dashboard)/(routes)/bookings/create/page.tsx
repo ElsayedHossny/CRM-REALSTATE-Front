@@ -1,4 +1,6 @@
 // app/bookings/create/page.tsx
+"use client";
+
 import BookingCreateForm from "@/components/booking/BookingCreateForm";
 
 export default function CreateBookingPage() {
@@ -10,7 +12,7 @@ export default function CreateBookingPage() {
           إضافة حجز جديد للنظام
         </p>
       </div>
-      <BookingCreateForm propertyId="" onClose={() => {}} />
+      <BookingCreateForm onClose={() => {}} propertyId="" />
     </div>
   );
 }

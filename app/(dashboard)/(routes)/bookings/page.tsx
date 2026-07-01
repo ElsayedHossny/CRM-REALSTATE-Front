@@ -2,7 +2,7 @@
 import { getToken } from "@/lib/getToken";
 import { getAllBookings } from "@/services/bookings.service";
 import BookingTable from "@/components/booking/BookingTable";
-import Link from "next/link";
+import CreateBookingButton from "@/components/booking/CreateBookingButton";
 
 export default async function BookingsPage() {
   const token = await getToken();
@@ -17,12 +17,7 @@ export default async function BookingsPage() {
             إدارة جميع الحجوزات
           </p>
         </div>
-        <Link
-          href="/bookings/create"
-          className="flex items-center gap-2 px-4 py-2 text-sm rounded-lg bg-foreground text-background hover:opacity-85 transition-opacity"
-        >
-          + حجز جديد
-        </Link>
+        <CreateBookingButton propertyId="" />
       </div>
       <BookingTable bookings={bookings} token={token} />
     </div>

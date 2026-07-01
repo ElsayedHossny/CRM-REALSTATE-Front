@@ -21,7 +21,16 @@ import {
   deleteClient,
 } from "@/services/client.service";
 import { Client, CreateClientInput } from "@/interfaces/client.interface";
+import CustomerSelect from "@/components/CustomerSelect";
+import PropertySelect from "@/components/properitySelect.tsx/propeirtySelect";
+import { getUsers } from "@/services/getAllusers";
 
+interface User {
+  _id: string;
+  name: string;
+  email: string;
+  phone?: string;
+}
 export default function ClientsPage() {
   const [activeTab, setActiveTab] = useState<"all" | "debt">("all");
   const [searchQuery, setSearchQuery] = useState("");
@@ -30,6 +39,7 @@ export default function ClientsPage() {
   const [selectedClient, setSelectedClient] = useState<Client | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+ const [users, setUsers] = useState<User[]>([]);
   const [formData, setFormData] = useState({
     user_id: "",
     property_id: "",
@@ -58,6 +68,19 @@ export default function ClientsPage() {
   useEffect(() => {
     fetchClients();
   }, [activeTab]);
+
+  useEffect(() => {
+  const fetchUsers = async () => {
+    try {
+      const data = await getUsers();
+      setUsers(data || []);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  fetchUsers();
+}, []);
 
   const filteredClients = useMemo(() => {
     if (!searchQuery.trim()) return clients;
@@ -403,34 +426,47 @@ export default function ClientsPage() {
               onSubmit={handleCreateClient}
               className="p-6 space-y-4 overflow-y-auto"
             >
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  معرف العميل
-                </label>
-                <input
-                  type="text"
-                  name="user_id"
-                  value={formData.user_id}
-                  onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900"
-                  placeholder="أدخل معرف العميل"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  معرف العقار
-                </label>
-                <input
-                  type="text"
-                  name="property_id"
-                  value={formData.property_id}
-                  onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900"
-                  placeholder="أدخل معرف العقار"
-                  required
-                />
-              </div>
+   <div>
+  <label className="block text-sm font-medium text-gray-700 mb-1">
+    معرف العميل
+  </label>
+<select
+  value={formData.user_id}
+  onChange={(e) =>
+    setFormData((prev) => ({
+      ...prev,
+      user_id: e.target.value,
+    }))
+  }
+  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+  required
+>
+  <option value="">اختر العميل</option>
+
+  {users.map((user) => (
+    <option key={user._id} value={user._id}>
+      {user.name} 
+    </option>
+  ))}
+</select>
+</div>
+
+<div>
+  <label className="block text-sm font-medium text-gray-700 mb-1">
+    معرف العقار
+  </label>
+
+<PropertySelect
+  value={formData.property_id}
+  onChange={(value) =>
+    setFormData((prev) => ({
+      ...prev,
+      property_id: value,
+    }))
+  }
+/>
+</div>
+              
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   إجمالي قيمة العقد
@@ -472,7 +508,7 @@ export default function ClientsPage() {
                   placeholder="أي ملاحظات إضافية..."
                 />
               </div>
-              <div>
+              {/* <div>
                 <div className="flex justify-between items-center mb-2">
                   <label className="block text-sm font-medium text-gray-700">
                     الأقساط
@@ -525,7 +561,7 @@ export default function ClientsPage() {
                     لا توجد أقساط مضافة بعد
                   </p>
                 )}
-              </div>
+              </div> */}
               <button
                 type="submit"
                 disabled={submitting}

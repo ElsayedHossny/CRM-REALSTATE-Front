@@ -8,7 +8,7 @@ import Cookies from 'js-cookie';
 export async function getPropertiesdashboard() {
   try {
     const res = await fetch(
-      `https://back-end-crm-project.vercel.app/api/properties`,
+      `https://backend-crm-project-production.up.railway.app/api/properties`,
       {
         cache: "no-store", // ✅ ده اللي ناقص
       }
@@ -27,7 +27,7 @@ export async function getPropertiesdashboard() {
 
 export async function getPropertyById(id: string) {
   try {
-    const res = await fetch(`https://back-end-crm-project.vercel.app/api/properties/${id}`, {
+    const res = await fetch(`https://backend-crm-project-production.up.railway.app/api/properties/${id}`, {
       method: "GET",
       cache: "no-store", // عشان يضمن يجيب داتا حية دايماً
     });
@@ -42,7 +42,7 @@ export async function getPropertyById(id: string) {
 
 
 export async function loginAdmin(email: string, password: string): Promise<string> {
-  const res = await fetch("https://back-end-crm-project.vercel.app/api/auth/login", {
+  const res = await fetch("https://backend-crm-project-production.up.railway.app/api/auth/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password }),
@@ -75,7 +75,7 @@ export async function updateProperty(id: string, dataObj: any) {
   // 2. اقرأ التوكن من الكوكيز
   const token = Cookies.get('admin_token'); 
 
-  const res = await fetch(`https://back-end-crm-project.vercel.app/api/properties/${id}`, {
+  const res = await fetch(`https://backend-crm-project-production.up.railway.app/api/properties/${id}`, {
     method: "PATCH", 
     headers: {
       "Content-Type": "application/json",
@@ -97,7 +97,7 @@ export async function deleteProperty(id: string): Promise<void> {
   const token = Cookies.get("admin_token");
   
   const res = await fetch(
-    `https://back-end-crm-project.vercel.app/api/properties/${id}`,
+    `https://backend-crm-project-production.up.railway.app/api/properties/${id}`,
     {
       method: "DELETE",
       headers: {

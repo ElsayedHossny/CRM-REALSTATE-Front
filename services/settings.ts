@@ -1,6 +1,6 @@
 "use client"
 
-const BASE_URL ="https://back-end-crm-project.vercel.app/api/company"
+const BASE_URL ="https://backend-crm-project-production.up.railway.app/api/company"
 
 export const  getSettings = async (token : string) =>{
    try{
@@ -21,7 +21,7 @@ export const  getSettings = async (token : string) =>{
 
 export const updatedCompantInfo = async (token: string, formData: FormData) => {
   try {
-    const res = await fetch(`https://back-end-crm-project.vercel.app/api/company`, {
+    const res = await fetch(`https://backend-crm-project-production.up.railway.app/api/company`, {
       method: "PUT",
       headers: {
         "Authorization": `Bearer ${token}` // ✅ Bearer مش Baerer

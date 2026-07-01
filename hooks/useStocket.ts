@@ -7,7 +7,7 @@ let socket: Socket | null = null;
 
 export const getSocket = () => {
   if (!socket) {
-    socket = io("http://localhost:8000", {
+    socket = io("https://backend-crm-project-production.up.railway.app", {
       transports: ["websocket"],
     });
 

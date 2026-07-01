@@ -3,7 +3,7 @@
 export default async function getPropertyById(productId: string) {
   try {
     const res = await fetch(
-      `https://ecommerce.routemisr.com/api/v1/products/${productId}`,
+      `https://backend-crm-project-production.up.railway.app/api/v1/products/${productId}`,
     );
     if (!res.ok) {
       throw new Error(res.statusText || "failed to fetch Properties");

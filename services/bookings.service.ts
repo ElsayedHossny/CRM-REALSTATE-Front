@@ -1,7 +1,7 @@
 
 import type { Booking, CreateBookingDto, UpdateBookingDto } from "@/types/booking.types";
 
-const BASE_URL = `https://back-end-crm-project.vercel.app/api/bookings/`;
+const BASE_URL = `https://backend-crm-project-production.up.railway.app/api/bookings/`;
 
 async function parseError(res: Response, fallback: string): Promise<never> {
   const body = await res.json().catch(() => null);

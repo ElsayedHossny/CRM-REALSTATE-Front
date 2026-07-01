@@ -24,8 +24,8 @@ interface NotificationContextType {
 
 const NotificationContext = createContext<NotificationContextType | undefined>(undefined);
 
-const BASE_URL = "https://back-end-crm-project.vercel.app/api/notifications";
-
+const BASE_URL =
+  "https://backend-crm-project-production.up.railway.app/api/notifications";
 export function NotificationProvider({ children }: { children: React.ReactNode }) {
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [unreadCount, setUnreadCount] = useState(0);
@@ -92,15 +92,17 @@ useEffect(() => {
   loadNotifications(); 
 
   const socket = getSocket();
-  socket.on("newNotification", (notification: Notification) => {
-    console.log("🔔 Notification Received:", notification);
-    setNotifications((prev) => [notification, ...prev]);
-    setUnreadCount((prev) => prev + 1);
-  });
+socket.on("new-notification", (notification: Notification) => {
+  console.log("🔔 Notification Received:", notification);
 
-  return () => {
-    socket.off("newNotification");
-  };
+  setNotifications((prev) => [notification, ...prev]);
+  setUnreadCount((prev) => prev + 1);
+});
+
+return () => {
+  socket.off("new-notification");
+};
+
 }, []);
 
   return (

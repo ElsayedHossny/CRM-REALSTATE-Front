@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 import { Category, CreateCategoryPayload } from "@/types/category";
 
-const API_URL = "https://back-end-crm-project.vercel.app/api/category";
+const API_URL = "https://backend-crm-project-production.up.railway.app/api/category";
 
 const getHeaders = () => {
   const token = Cookies.get("admin_token");

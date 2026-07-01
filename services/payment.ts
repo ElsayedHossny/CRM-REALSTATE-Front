@@ -1,6 +1,6 @@
 import { IPayment } from "@/interfaces/payment"; 
 
-const BASE_URL = "https://back-end-crm-project.vercel.app/api/payments";
+const BASE_URL = "https://backend-crm-project-production.up.railway.app/api/payments";
 
 export const getAllPayments = async (token: string): Promise<IPayment[]> => {
   try {

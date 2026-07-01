@@ -69,7 +69,7 @@ export default function InvoicePaymentDeatiles() {
         <div className="bg-white rounded-2xl shadow-sm p-6 flex justify-between items-center">
           <div>
             <h1 className="text-3xl font-bold text-gray-800">
-              الفاتورة #{payment._id}
+              الفاتورة 
             </h1>
             <p className="text-gray-500 mt-1">
               {new Date(payment.createdAt).toLocaleDateString("ar-EG")}

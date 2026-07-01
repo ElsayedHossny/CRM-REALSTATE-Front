@@ -75,7 +75,6 @@ export function NotificationProvider({ children }: { children: React.ReactNode }
   };
 
 useEffect(() => {
-  // ✅ بنعمل fetch مباشرة من غير استدعاء دالة setState جوا الـ effect
   const loadNotifications = async () => {
     try {
       const token = Cookies.get("admin_token");
@@ -94,6 +93,7 @@ useEffect(() => {
 
   const socket = getSocket();
   socket.on("newNotification", (notification: Notification) => {
+    console.log("🔔 Notification Received:", notification);
     setNotifications((prev) => [notification, ...prev]);
     setUnreadCount((prev) => prev + 1);
   });

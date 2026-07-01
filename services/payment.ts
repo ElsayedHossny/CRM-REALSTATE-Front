@@ -4,30 +4,23 @@ const BASE_URL = "https://back-end-crm-project.vercel.app/api/payments";
 
 export const getAllPayments = async (token: string): Promise<IPayment[]> => {
   try {
-    const res = await fetch(`${BASE_URL}`, {
+    const res = await fetch(BASE_URL, {
       method: "GET",
       headers: {
-        "Authorization": `Bearer ${token}`,
-        "Content-Type": "application/json"
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
       },
-      cache: "no-store" 
+      cache: "no-store",
     });
 
-    if (!res.ok) {
-      const errorData = await res.json().catch(() => null);
-      throw new Error(errorData?.message || `HTTP error! status: ${res.status}`);
-    }
+    const result = await res.json();
 
-    const data: IPayment[] = await res.json();
-    
-    console.log(data)
+    console.log("Payments API:", result);
 
-    return data;
-
-    
+    return result.data || [];
   } catch (error) {
     console.error("Error in getAllPayments:", error);
-    throw error; 
+    throw error;
   }
 };
 

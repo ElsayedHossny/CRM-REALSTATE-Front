@@ -13,7 +13,9 @@ import {
   MapPin,
   Loader2,
   Tag,
+  Phone,
 } from "lucide-react";
+import BookingCreateForm from "../booking/BookingCreateForm";
 
 export default function PropertyDetailsPageSite() {
   const params = useParams();
@@ -22,7 +24,8 @@ export default function PropertyDetailsPageSite() {
   const [property, setProperty] = useState<Property | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
-
+  const [showBookingModal, setShowBookingModal] = useState(false);
+  
   useEffect(() => {
     if (!id) return;
     const fetchDetail = async () => {
@@ -47,7 +50,8 @@ export default function PropertyDetailsPageSite() {
     "https://images.unsplash.com/photo-1564013799919-ab600027ffc6";
 
   return (
-    <div
+    <>
+       <div
       className="max-w-6xl mx-auto p-4 md:p-6 space-y-8 bg-white dark:bg-neutral-950 transition-colors duration-300"
       dir="rtl"
     >
@@ -128,7 +132,9 @@ export default function PropertyDetailsPageSite() {
               </span>
             </div>
 
-            <button className="w-full bg-green-700 dark:bg-green-600 text-white py-3 rounded-xl text-sm font-bold hover:bg-green-800 dark:hover:bg-green-700 shadow-md shadow-green-900/20 dark:shadow-green-950/40 transition-all">
+            <button 
+            onClick={()=> setShowBookingModal(true)}
+            className="w-full bg-green-700 dark:bg-green-600 text-white py-3 rounded-xl text-sm font-bold hover:bg-green-800 dark:hover:bg-green-700 shadow-md shadow-green-900/20 dark:shadow-green-950/40 transition-all">
               احجز العقار الآن
             </button>
 
@@ -139,6 +145,15 @@ export default function PropertyDetailsPageSite() {
         </div>
       </div>
     </div>
+
+        {showBookingModal && (
+      <BookingCreateForm
+        propertyId={property._id}
+        onClose={() => setShowBookingModal(false)}
+      />
+    )}
+    </>
+    
   );
 }
 

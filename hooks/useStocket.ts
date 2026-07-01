@@ -10,7 +10,20 @@ export const getSocket = () => {
     socket = io("http://localhost:8000", {
       transports: ["websocket"],
     });
+
+    socket.on("connect", () => {
+      console.log("✅ Connected:", socket.id);
+    });
+
+    socket.on("disconnect", () => {
+      console.log("❌ Disconnected");
+    });
+
+    socket.on("connect_error", (err) => {
+      console.log("🚨 Connect Error:", err.message);
+    });
   }
+
   return socket;
 };
 

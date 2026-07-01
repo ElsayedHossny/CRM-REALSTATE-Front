@@ -21,6 +21,8 @@ import {
   deleteClient,
 } from "@/services/client.service";
 import { Client, CreateClientInput } from "@/interfaces/client.interface";
+import CustomerSelect from "@/components/CustomerSelect";
+import PropertySelect from "@/components/properitySelect.tsx/propeirtySelect";
 
 export default function ClientsPage() {
   const [activeTab, setActiveTab] = useState<"all" | "debt">("all");
@@ -403,34 +405,37 @@ export default function ClientsPage() {
               onSubmit={handleCreateClient}
               className="p-6 space-y-4 overflow-y-auto"
             >
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  معرف العميل
-                </label>
-                <input
-                  type="text"
-                  name="user_id"
-                  value={formData.user_id}
-                  onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900"
-                  placeholder="أدخل معرف العميل"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  معرف العقار
-                </label>
-                <input
-                  type="text"
-                  name="property_id"
-                  value={formData.property_id}
-                  onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900"
-                  placeholder="أدخل معرف العقار"
-                  required
-                />
-              </div>
+   <div>
+  <label className="block text-sm font-medium text-gray-700 mb-1">
+    معرف العميل
+  </label>
+<CustomerSelect
+  value={formData.user_id}
+  onChange={(value) =>
+    setFormData((prev) => ({
+      ...prev,
+      user_id: value,
+    }))
+  }
+/>
+</div>
+
+<div>
+  <label className="block text-sm font-medium text-gray-700 mb-1">
+    معرف العقار
+  </label>
+
+<PropertySelect
+  value={formData.property_id}
+  onChange={(value) =>
+    setFormData((prev) => ({
+      ...prev,
+      property_id: value,
+    }))
+  }
+/>
+</div>
+              
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   إجمالي قيمة العقد

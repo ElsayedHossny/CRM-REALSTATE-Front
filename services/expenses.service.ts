@@ -2,7 +2,7 @@
 import type { Expense, CreateExpenseDto, UpdateExpenseDto } from "@/types/expense.types";
 
 
-const BASE_URL = `https://back-end-crm-project.vercel.app/api/expenses/`;
+const BASE_URL = `https://backend-crm-project-production.up.railway.app/api/expenses/`;
 
 async function parseError(res: Response, fallback: string): Promise<never> {
   const body = await res.json().catch(() => null);
@@ -22,7 +22,7 @@ export async function getAllExpenses(): Promise<Expense[]> {
 
 export async function getOneExpense(id: string): Promise<Expense> {
   try {
-    const res = await fetch(`https://back-end-crm-project.vercel.app/api/expenses?id=${id}`, { cache: "no-store" });
+    const res = await fetch(`https://backend-crm-project-production.up.railway.app/api/expenses?id=${id}`, { cache: "no-store" });
     if (!res.ok) await parseError(res, "Failed to fetch expense");
     const data = await res.json();
     console.log(data)
@@ -39,7 +39,7 @@ export async function createExpense(payload: CreateExpenseDto): Promise<Expense>
     console.log(BASE_URL+"addexpense");
 
     
-    const res = await fetch("https://back-end-crm-project.vercel.app/api/expenses/addexpense", {
+    const res = await fetch("https://backend-crm-project-production.up.railway.app/api/expenses/addexpense", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),

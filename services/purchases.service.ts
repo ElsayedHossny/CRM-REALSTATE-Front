@@ -5,7 +5,7 @@ import type {
   UpdatePurchaseInvoiceDto,
 } from "@/types/purchaseInvoice.types";
 
-const BASE_URL = `https://back-end-crm-project.vercel.app/api/purchaseInvoices/`;
+const BASE_URL = `https://backend-crm-project-production.up.railway.app/api/purchaseInvoices/`;
 
 async function parseError(res: Response, fallback: string): Promise<never> {
   const body = await res.json().catch(() => null);

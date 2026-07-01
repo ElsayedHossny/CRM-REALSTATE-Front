@@ -1,6 +1,6 @@
 import { IInvoice } from "@/interfaces/invoice";
 
-const BASE_URL = "https://back-end-crm-project.vercel.app/api/invoice";
+const BASE_URL = "https://backend-crm-project-production.up.railway.app/api/invoice";
 
 // 1. تعريف الـ Interface الخاص بالبيانات المرسلة لإنشاء الفاتورة (بديل any)
 export interface ICreateInvoiceBody {

@@ -5,7 +5,7 @@ import type {
   UpdateInstallmentPlanDto,
 } from "@/types/installmentPlan";
 
-const BASE_URL = `https://back-end-crm-project.vercel.app/api/installmentPlan/`;
+const BASE_URL = `https://backend-crm-project-production.up.railway.app/api/installmentPlan/`;
 
 export async function getAllInstallments(): Promise<InstallmentPlan[]> {
   try {

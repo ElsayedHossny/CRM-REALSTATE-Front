@@ -2,7 +2,7 @@ import { Client, CreateClientInput } from '@/interfaces/client.interface';
 import Cookies from 'js-cookie';
 
 export async function getClients(filterType: 'all' | 'debt' | 'paid'): Promise<Client[]> {
-  const baseUrl = 'https://back-end-crm-project.vercel.app/api/clients';
+  const baseUrl = 'https://backend-crm-project-production.up.railway.app/api/clients';
   let url: string;
 
   if (filterType === 'all') {
@@ -23,7 +23,7 @@ export async function getClients(filterType: 'all' | 'debt' | 'paid'): Promise<C
   }
 
   try {
-    const response = await fetch(url, { method: 'GET', headers });
+    const response = await fetch("https://backend-crm-project-production.up.railway.app/api/users", { method: 'GET', headers });
     if (!response.ok) {
       console.warn(`⚠️ خطأ في الشبكة ${response.status} أثناء طلب الرابط: ${url}`);
       return [];
@@ -60,7 +60,7 @@ export async function createClient(data: CreateClientInput): Promise<boolean> {
 
   try {
     const response = await fetch(
-      'https://back-end-crm-project.vercel.app/api/clients/addclient',
+      'https://backend-crm-project-production.up.railway.app/api/clients/addclient',
       {
         method: 'POST',
         headers,
@@ -100,7 +100,7 @@ export async function deleteClient(clientId: string): Promise<boolean> {
   try {
    
     const response = await fetch(
-      `https://back-end-crm-project.vercel.app/api/clients/deleteclient/${clientId}`,
+      `https://backend-crm-project-production.up.railway.app/api/clients/deleteclient/${clientId}`,
       {
         method: 'DELETE',
         headers,

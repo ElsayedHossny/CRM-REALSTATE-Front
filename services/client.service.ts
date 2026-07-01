@@ -23,7 +23,7 @@ export async function getClients(filterType: 'all' | 'debt' | 'paid'): Promise<C
   }
 
   try {
-    const response = await fetch("https://backend-crm-project-production.up.railway.app/api/users", { method: 'GET', headers });
+    const response = await fetch(url, { method: 'GET', headers });
     if (!response.ok) {
       console.warn(`⚠️ خطأ في الشبكة ${response.status} أثناء طلب الرابط: ${url}`);
       return [];

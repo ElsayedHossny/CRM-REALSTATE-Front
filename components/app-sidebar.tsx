@@ -32,6 +32,7 @@ import {
   Tags,
   ReceiptText,
   ShoppingCart,
+  CalendarCheck,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -68,7 +69,11 @@ const menuItems = [
   },
   { icon: ReceiptText, label: "فواتير المصروفات", href: "/expenses" },
   { icon: ShoppingCart, label: "فواتير المشتريات", href: "/purchaseInvoices" },
-
+  {
+    icon: CalendarCheck,
+    label: "الحجوزات",
+    href: "/bookings",
+  },
   { icon: Settings, label: "الإعدادات", href: "/settings" },
 ];
 

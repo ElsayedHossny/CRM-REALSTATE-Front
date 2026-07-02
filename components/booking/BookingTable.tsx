@@ -83,7 +83,7 @@ export default function BookingTable({ bookings, token }: Props) {
                   <td className="px-5 py-3 text-muted-foreground">{booking.phone}</td>
                   <td className="px-5 py-3 text-muted-foreground">
                     {typeof booking.property_id === "object"
-                      ? booking.property_id.title
+                      ? booking.property_id?.title
                       : booking.property_id}
                   </td>
                   <td className="px-5 py-3">

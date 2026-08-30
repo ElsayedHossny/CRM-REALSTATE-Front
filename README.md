@@ -1,3 +1,5 @@
+![CRM Real Estate Project](./CRM_RealState.png)
+
 # 🏠 Real Estate CRM — Property Management System
 
 **Real Estate CRM** is a web-based Customer Relationship Management system developed as part of the **NTI (National Telecommunication Institute) training program**.
